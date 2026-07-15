@@ -10,7 +10,8 @@
 
 void delay_ms(unsigned int milliseconds) {
 #ifdef _WIN32
-    Sleep(milliseconds);#else
+    Sleep(milliseconds);
+#else
     struct timespec ts;
     ts.tv_sec = milliseconds / 1000;
     ts.tv_nsec = (milliseconds % 1000) * 1000000;
