@@ -8,15 +8,13 @@
     #include <time.h>
 #endif
 
-// Fungsi universal untuk tidur dalam milidetik
 void delay_ms(unsigned int milliseconds) {
 #ifdef _WIN32
-    Sleep(milliseconds); // Menggunakan fungsi bawaan Windows
-#else
+    Sleep(milliseconds);#else
     struct timespec ts;
     ts.tv_sec = milliseconds / 1000;
     ts.tv_nsec = (milliseconds % 1000) * 1000000;
-    nanosleep(&ts, NULL); // Menggunakan fungsi bawaan POSIX/Linux
+    nanosleep(&ts, NULL);
 #endif
 }
 
